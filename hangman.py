@@ -18,10 +18,8 @@ def welcome_message():
     print("The Rules: \n1. You have 6 lives to guess the word. \n2. Each time you guess a letter that is not in the word, you lose a life. \n3. The game ends when you either guess the word correctly or run out of lives. \n4. Good luck and have fun playing! \n")
     print()
 
-"""
-Handles getting a guess - a letter from user.
-Checking if it's a single letter, a valid letter and a new letter.
-"""
+'''Handles getting a guess - a letter from user.
+Checking if it's a single letter, a valid letter and a new letter (not guessed before)'''
 def get_valid_input(guessed_letters):
     # Loop until the user provides a valid input
     while True:
@@ -39,7 +37,11 @@ def get_valid_input(guessed_letters):
 
         return guess
 
-        
+'''Replaces underscores with the correctly guessed letter.'''
+def update_display(word, display, guess):
+    for i in range(len(word)):
+        if word[i] == guess:
+            display[i] = guess
 
 '''Play the game'''
 def hangman():
@@ -77,9 +79,7 @@ def hangman():
         # Check if the guess is in the word
         if guess in letters_in_word:
             # If it is, replace the corresponding underscore with the letter
-            for i in range(len(letters_in_word)):
-                if letters_in_word[i] == guess:
-                    display[i] = guess
+            update_display(word, display, guess)
             print(f"Correct! The word updated: {' '.join(display)}\n")
         else:
             lives -= 1 # deduct a life 
