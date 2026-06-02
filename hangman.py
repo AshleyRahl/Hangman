@@ -1,13 +1,23 @@
 import random
+from string import ascii_lowercase
+from wordsList import words
 
-'''Get a random word from the list'''
-def get_random_word():
-    # List of words to choose from
-    word_list = ["superman", "batman", "wonderwoman", "flash", "aquaman", "cyborg"]
 
-    # Randomly select a word from the list
-    return random.choice(word_list)
+'''Get a random word from the list - either from the hardcoded list or from the imported words list'''
+def get_random_word(words):
+    # # 1. Use words in list below
+    # # List of words to choose from
+    # word_list = ["superman", "batman", "wonderwoman", "flash", "aquaman", "cyborg"]
+    
+    # # Randomly select a word from the list
+    # return random.choice(word_list)
 
+    # 2. Get random word from the words list imported from wordsList.py
+    word = random.choice(words)
+    while "-" in word or " " in word: # Ensure the word doesn't contain hyphens or spaces
+        word = random.choice(words)
+
+    return word.lower() # Return the word in Lowercase
 
 '''Welcome message and rules of the game'''
 def welcome_message():
@@ -45,7 +55,7 @@ Play the game
 Create a loop to keep the game running until the user either wins (guesses the word) or loses (runs out of lives)
 '''
 def hangman():
-    word = get_random_word() # Get a random word from random function
+    word = get_random_word(words) # Get a random word from random function
 
     letters_in_word = list(word) # Create a list of letters of the word
 
