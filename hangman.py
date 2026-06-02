@@ -94,7 +94,7 @@ def hangman():
         guess = get_valid_input(guessed_letters) # passing the list of guessed letters to check for duplicates
         guessed_letters.append(guess) # add the guessed letter to the list of already guessed letters
         guessed_letters.sort() # sort the guessed letters alphabetically for better readability
-        alphabet = alphabet.replace(guess, "-")
+        alphabet = alphabet.replace(guess, "-") # remove letter from alphabet string list (a b c ... --> a - c ...)
 
         # Check if the guess letter is in word
         if guess in letters_in_word:

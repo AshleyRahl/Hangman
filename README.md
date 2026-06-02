@@ -14,6 +14,7 @@ This command-line Hangman game pulls from a library of over 200+ words. This pro
 - **Modular Architecture:** - `get_valid_input()`: A standalone validator that ensures only new, alphabetical characters are processed.
     - `update_display()`: A pure logic function dedicated to state updates.
 - **Dynamic Feedback:** Real-time tracking of remaining lives and an alphabetically sorted list of previous guesses.
+- **Spaced UI Layout:** Utilized `.join()` string formatting to alter the display, improving readability and player focus during gameplay.
 
 ## How to Play
 1. Ensure both `hangman.py` and `wordsList.py` are in the same folder.
