@@ -24,3 +24,21 @@ This command-line Hangman game pulls from a library of over 200+ words. This pro
    ```
 3. Guess one letter at a time to reveal the hidden word before you run out of lives!
 
+## Automated Testing
+Includes a `unittest` suite to verify core game logic, specifically:
+- **Character Mapping:** Ensures correct indexing when revealing letters.
+- **Multi-character Support:** Validates that words with repeating letters (e.g., "banana") update correctly in a single turn.
+- **Persistence:** Confirms that the game state remains unchanged on incorrect guesses.
+
+## Run Tests (Final Check)
+
+1. To run the test, just open your terminal in that folder and type:
+    ```bash
+    python -m unittest test_hangman.py
+    ```
+2. How to run tests from a folder
+    ```bash
+    python -m unittest discover tests
+    ```
+    The discover command tells Python: "Go into the tests folder and run every test file you find."
+

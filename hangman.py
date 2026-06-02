@@ -113,5 +113,7 @@ def hangman():
     
         
 ''''Main function to run the game'''
-welcome_message()
-hangman()
+# This is the "Shield" as im running into test error - it just starts running the code
+if __name__ == "__main__":
+    welcome_message()
+    hangman()
