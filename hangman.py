@@ -1,14 +1,27 @@
+"""
+Project: Hangman Game
+Version: 1.0.0
+Author: AC Rahl
+
+Description: 
+    A terminal-based Hangman game that utilizes external module imports for word selection. 
+    The program demonstrates separation of concerns by splitting input validation, display logic, and game state management into dedicated functions.
+
+Features:
+    - Dynamic word filtering (removes hyphens/spaces)
+    - Alphabetical tracking of guessed letters
+    - Robust input sanitization
+"""
 import random
 from string import ascii_lowercase
 from wordsList import words
-
 
 '''Get a random word from the list - either from the hardcoded list or from the imported words list'''
 def get_random_word(words):
     # # 1. Use words in list below
     # # List of words to choose from
     # word_list = ["superman", "batman", "wonderwoman", "flash", "aquaman", "cyborg"]
-    
+
     # # Randomly select a word from the list
     # return random.choice(word_list)
 
@@ -50,10 +63,8 @@ def update_display(word, display, guess):
         if word[i] == guess:
             display[i] = guess
 
-'''
-Play the game
-Create a loop to keep the game running until the user either wins (guesses the word) or loses (runs out of lives)
-'''
+'''Play the game
+Create a loop to keep the game running until the user either wins (guesses the word) or loses (runs out of lives)'''
 def hangman():
     word = get_random_word(words) # Get a random word from random function
 
