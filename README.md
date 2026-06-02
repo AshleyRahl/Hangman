@@ -15,6 +15,7 @@ This command-line Hangman game pulls from a library of over 200+ words. This pro
     - `update_display()`: A pure logic function dedicated to state updates.
 - **Dynamic Feedback:** Real-time tracking of remaining lives and an alphabetically sorted list of previous guesses.
 - **Spaced UI Layout:** Utilized `.join()` string formatting to alter the display, improving readability and player focus during gameplay.
+- **Modular Entry Point:** Implemented `if __name__ == "__main__":` guarding to allow the game logic to be imported into test suites without triggering the game loop.
 
 ## How to Play
 1. Ensure both `hangman.py` and `wordsList.py` are in the same folder.
@@ -29,12 +30,13 @@ Includes a `unittest` suite to verify core game logic, specifically:
 - **Character Mapping:** Ensures correct indexing when revealing letters.
 - **Multi-character Support:** Validates that words with repeating letters (e.g., "banana") update correctly in a single turn.
 - **Persistence:** Confirms that the game state remains unchanged on incorrect guesses.
+- **Modular Entry Point:** Implemented `if __name__ == "__main__":` guarding to allow the game logic to be imported into test suites without triggering the game loop.
 
 ## Run Tests (Final Check)
 
 1. To run the test, just open your terminal in that folder and type:
     ```bash
-    python -m unittest test_hangman.py
+    python -m unittest tests/test_hangman.py
     ```
 2. How to run tests from a folder
     ```bash
