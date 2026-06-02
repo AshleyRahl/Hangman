@@ -1,7 +1,9 @@
 # Hangman Game
-Hangman is a word-guessing game
+
+Hangman is a word-guessing game.
 Where a player needs to guess the secret word - one letter at a time.
-A sophisticated command-line Hangman game that pulls from a library of over 200+ words. This project focuses on **clean code principles** and **functional decomposition**.
+
+This command-line Hangman game pulls from a library of over 200+ words. This project focuses on **clean code principles** and **functional decomposition**.
 
 ## Project Structure
 - `hangman.py`: The main game engine containing the logic and user interface.
@@ -21,7 +23,3 @@ A sophisticated command-line Hangman game that pulls from a library of over 200+
    ```
 3. Guess one letter at a time to reveal the hidden word before you run out of lives!
 
-## Skills Demonstrated
-- Importing/Exporting custom Python modules.
-- List comprehension and string manipulation (~~.join()~~).
-- Advanced control flow (nested loops and conditional validation).
