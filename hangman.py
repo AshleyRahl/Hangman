@@ -3,14 +3,11 @@ import random
 '''Get a random word from the list'''
 def get_random_word():
     # List of words to choose from
-    # word_list = ["superman", "batman", "wonderwoman", "flash", "aquaman", "cyborg"]
-
-    # Startwith a word - for testing purposes
-    word = "superman"
+    word_list = ["superman", "batman", "wonderwoman", "flash", "aquaman", "cyborg"]
 
     # Randomly select a word from the list
-    # return random.choice(word_list)
-    return word
+    return random.choice(word_list)
+
 
 '''Welcome message and rules of the game'''
 def welcome_message():
