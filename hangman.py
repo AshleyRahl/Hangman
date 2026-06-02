@@ -58,6 +58,7 @@ def hangman():
 
     # Initial game status - this gives the user idea of possible word
     print(f"Your word contains {len(word)} letters.")
+    # .join to display ['_', 'a', '_'] as _ a _ for better readability
     print(f"Here is the word: {' '.join(display)}\n")
     
     # Keep game in a loop as long as they have lives AND missing words
