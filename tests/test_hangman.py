@@ -2,13 +2,16 @@
 Unit tests for the hangman game functions.
 (Test the small predictable parts)
 
-- get_random_word: test that it returns a word from the list
-- get_valid_input: test that it only accepts valid input and handles duplicates
-
 update_display: 
 - test that it correctly updates the display with the guessed letter
 - test that it handles multiple occurrences of the guessed letter
 - test that it does not update the display if the guessed letter is not in the word
+
+get_random_word (Not yet added): 
+- test that it returns a word from the list
+
+get_valid_input (Not yet added):
+- test that it only accepts valid input and handles duplicates
 
 """
 
