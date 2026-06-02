@@ -75,6 +75,8 @@ def hangman():
 
     guessed_letters = [] # Keep track of what user already tried
 
+    alphabet = str(ascii_lowercase) # Set of all lowercase letters for validation
+
     lives = 6 # User life attempts
 
     # Initial game status - this gives the user idea of possible word
@@ -85,12 +87,14 @@ def hangman():
     # Keep game in a loop as long as they have lives AND missing words
     while "_" in display and lives > 0:
         print(f"Lives left: {lives}") # tell user how many lives they have left
+        print(f"Letters remaining: {' '.join(alphabet)}") # Display the remaining letters of possibilities
         print(f"Your guesses so far: {' '.join(guessed_letters)}\n") # tell user what they already tried
         
         # Get a valid guess from the user
         guess = get_valid_input(guessed_letters) # passing the list of guessed letters to check for duplicates
         guessed_letters.append(guess) # add the guessed letter to the list of already guessed letters
         guessed_letters.sort() # sort the guessed letters alphabetically for better readability
+        alphabet = alphabet.replace(guess, "-")
 
         # Check if the guess letter is in word
         if guess in letters_in_word:
