@@ -37,56 +37,52 @@ def get_valid_input(guessed_letters):
 
         return guess
 
-'''Replaces underscores with the correctly guessed letter.'''
+'''If guessed letter is in word, replace the corresponding underscore with the correctly guessed letter'''
 def update_display(word, display, guess):
     for i in range(len(word)):
         if word[i] == guess:
             display[i] = guess
 
-'''Play the game'''
+'''
+Play the game
+Create a loop to keep the game running until the user either wins (guesses the word) or loses (runs out of lives)
+'''
 def hangman():
-    # Get a random word from random function
-    word = get_random_word()
-    # Create a list of letters in the word
-    letters_in_word = list(word)
+    word = get_random_word() # Get a random word from random function
+
+    letters_in_word = list(word) # Create a list of letters of the word
 
     # Create a list of underscores to represent the letters in the word
     display = ["_" for _ in letters_in_word]
 
-    # Keep track of what user already tried
-    guessed_letters = [] # create an empty list to store guessed letters
+    guessed_letters = [] # Keep track of what user already tried
 
-    
-    # User life attempts
-    lives = 6
+    lives = 6 # User life attempts
 
+    # Initial game status - this gives the user idea of possible word
     print(f"Your word contains {len(word)} letters.")
     print(f"Here is the word: {' '.join(display)}\n")
     
-    # Keep game in a loop as long as they have lives AND missing words ("_")
+    # Keep game in a loop as long as they have lives AND missing words
     while "_" in display and lives > 0:
-        print(f"Lives left: {lives}")
-        print(f"Your guesses so far: {' '.join(guessed_letters)}\n")
+        print(f"Lives left: {lives}") # tell user how many lives they have left
+        print(f"Your guesses so far: {' '.join(guessed_letters)}\n") # tell user what they already tried
         
         # Get a valid guess from the user
-        # passing the list of guessed letters to check for duplicates
-        guess = get_valid_input(guessed_letters) 
-        # Add the guessed letter to the list of guessed letters
+        guess = get_valid_input(guessed_letters) # passing the list of guessed letters to check for duplicates
         guessed_letters.append(guess) # add the guessed letter to the list of already guessed letters
         guessed_letters.sort() # sort the guessed letters alphabetically for better readability
 
-
-        # Check if the guess is in the word
+        # Check if the guess letter is in word
         if guess in letters_in_word:
-            # If it is, replace the corresponding underscore with the letter
+            # function to replace the corresponding underscore with the letter
             update_display(word, display, guess)
             print(f"Correct! The word updated: {' '.join(display)}\n")
         else:
             lives -= 1 # deduct a life 
             print(f"Sorry! Try again. The word: {' '.join(display)}\n")
-            # print(f"")
 
-    # Check if the user has guessed the word correctly, congratulate them
+    # Final Win/Loss Check
     if "_" not in display:
         print("\nCongratulations! You've guessed the word correctly!")
     else:
