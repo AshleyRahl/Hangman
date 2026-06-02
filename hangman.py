@@ -18,6 +18,29 @@ def welcome_message():
     print("The Rules: \n1. You have 6 lives to guess the word. \n2. Each time you guess a letter that is not in the word, you lose a life. \n3. The game ends when you either guess the word correctly or run out of lives. \n4. Good luck and have fun playing! \n")
     print()
 
+"""
+Handles getting a guess - a letter from user.
+Checking if it's a single letter, a valid letter and a new letter.
+"""
+def get_valid_input(guessed_letters):
+    # Loop until the user provides a valid input
+    while True:
+        # Get the user's guess
+        guess = input("Guess a letter: ").lower()
+        
+        # Validate the input
+        if len(guess) != 1 or not guess.isalpha(): # Check if the input is a single letter and is an alphabet
+            print("Invalid input. Please enter a single letter.\n")
+            continue
+        
+        if guess in guessed_letters: # Check if the user has already guessed the letter before
+            print(f"You've alreasdy guessed {guess}. Try a different letter.\n")
+            continue
+
+        return guess
+
+        
+
 '''Play the game'''
 def hangman():
     # Get a random word from random function
@@ -30,7 +53,7 @@ def hangman():
 
     # Keep track of what user already tried
     guessed_letters = [] # create an empty list to store guessed letters
-    guessed_letters.sort() # sort the guessed letters alphabetically for better readability
+
     
     # User life attempts
     lives = 6
@@ -42,22 +65,13 @@ def hangman():
     while "_" in display and lives > 0:
         print(f"Lives left: {lives}")
         print(f"Your guesses so far: {' '.join(guessed_letters)}\n")
-        # Get the user's guess
-        guess = input("Guess a letter: ").lower()
-
-
-        # Check if the user has already guessed the letter
-        if guess in guessed_letters:
-            print(f"You've already guessed '{guess}'. Try a different letter.\n")
-            continue # skip the rest of the loop and prompt for another guess
-
-        # Check if the input is a single letter
-        if len(guess) != 1 or not guess.isalpha():
-            print("Invalid input. Please enter a single letter.\n")
-            continue
-
+        
+        # Get a valid guess from the user
+        # passing the list of guessed letters to check for duplicates
+        guess = get_valid_input(guessed_letters) 
         # Add the guessed letter to the list of guessed letters
         guessed_letters.append(guess) # add the guessed letter to the list of already guessed letters
+        guessed_letters.sort() # sort the guessed letters alphabetically for better readability
 
 
         # Check if the guess is in the word
