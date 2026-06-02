@@ -36,6 +36,7 @@ class TestHangman(unittest.TestCase):
         update_display(word, display, guess)
         self.assertEqual(display, ["_", "p", "p", "_", "_"])
     
+    '''if letter not in word, no changes are made'''
     def test_update_display_no_letter(self):
         word = "banana"
         display = ["_", "_", "_", "_", "_", "_"]
